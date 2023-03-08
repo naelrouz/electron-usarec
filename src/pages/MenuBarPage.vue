@@ -31,7 +31,10 @@ import { useCounterStore } from 'stores/example-store';
 // import { Todo, Meta } from 'components/models';
 // import ExampleComponent from 'components/ExampleComponent.vue';
 
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const i18n = useI18n();
 
 const counterStore = useCounterStore();
 
@@ -44,9 +47,9 @@ const counterStore = useCounterStore();
 
 const userInfo = ref();
 
-const menu = [
+const menu = computed(() => [
   {
-    header: 'Record',
+    header: i18n.t('RECORD'),
     items: [
       {
         id: 'menu-item-record-new',
@@ -105,7 +108,7 @@ const menu = [
       },
     ],
   },
-];
+]);
 
 onMounted(async () => {
   userInfo.value = await electronApi.getUserInfo();
