@@ -1,7 +1,7 @@
 {
   "name": "wdsrec",
   "version": "0.0.1",
-  "description": "A Quasar Project",
+  "description": "Webdriver user actions recorder",
   "productName": "Quasar App",
   "author": "Ivan Novoselov (nael) <nael@ptburg.com>",
   "private": true,
