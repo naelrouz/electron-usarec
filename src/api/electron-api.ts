@@ -11,7 +11,7 @@ export interface ElectronApi {
   // // getDesktopStream: () => Promise<string[]>;
   // getAllDisplays: () => Promise<string[]>;
   getUserInfo: () => Promise<UserInfo>;
-  // test: () => Promise<string[]>;
+  quit: () => never;
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
