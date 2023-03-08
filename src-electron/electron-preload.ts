@@ -32,5 +32,6 @@ import { contextBridge, ipcRenderer } from 'electron';
 
 contextBridge.exposeInMainWorld('electronApi', {
   doAThing: () => '888',
-  getUserInfo: async () => ipcRenderer.invoke('GET_USER_INFO'),
+  getUserInfo: () => ipcRenderer.invoke('GET_USER_INFO'),
+  appQuit: () => ipcRenderer.invoke('APP_QUIT'),
 });

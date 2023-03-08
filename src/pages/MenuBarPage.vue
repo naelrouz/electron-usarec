@@ -7,7 +7,7 @@ q-layout(view="lHh Lpr lFf")
           q-item-label(v-if="menuParentItem.header" header) {{ menuParentItem.header }}
           template(v-for="menuItem in menuParentItem.items")
             template(v-if="!menuItem.children?.length")
-              q-item(clickable v-ripple)
+              q-item(clickable v-ripple @click="menuItem.click && menuItem.click()")
                 q-item-section(avatar)
                   q-icon(:name="menuItem.icon")
                 q-item-section {{ menuItem.title }}
@@ -101,7 +101,7 @@ const menu = [
       {
         title: 'Quit',
         icon: 'close',
-        click: () => electronApi.quit(),
+        click: () => electronApi.appQuit(),
       },
     ],
   },

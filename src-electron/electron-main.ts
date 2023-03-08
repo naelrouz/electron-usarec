@@ -35,10 +35,7 @@ const mb = menubar({
 });
 
 mb.on('after-create-window', () => {
-  if (!mb?.window) {
-    throw new Error();
-  }
-  mb.window.openDevTools();
+  mb.window?.openDevTools();
 });
 
 mb.on('ready', () => {
@@ -58,7 +55,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     icon: path.resolve(__dirname, 'icons/icon.png'), // tray icon
     width: 1000,
-    height: 600,
+    height: 1200,
     useContentSize: true,
     webPreferences: {
       contextIsolation: true,
@@ -100,3 +97,4 @@ app.on('activate', () => {
 });
 
 ipcMain.handle('GET_USER_INFO', () => os.userInfo());
+ipcMain.handle('APP_QUIT', () => app.quit());
